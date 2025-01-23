@@ -1,125 +1,266 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carros Rebaixados</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
-    <style>
-        body {
-            background: url('https://img.freepik.com/fotos-gratis/ilustracao-de-chuva-na-cidade-futuristica_23-2151406576.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        header {
-            display: flex;
-            align-items: center;
-            padding: 20px;
-        }
-        .logo {
-            position: absolute;
-            border: 5px solid #39FF14; /* Moldura neon */
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(57, 255, 20, 0.7); /* Efeito neon */
-        }
-        .header-text {
-            flex: 1;
-            text-align: center;
-            background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
-            border-bottom: 2px solid #39FF14; /* Linha inferior verde neon */
-        }
-        .header-text h1 {
-            margin: 10px;
-            font-size: 48px;
-            color: #000;
-            -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: #39FF14;
-        }
-        .header-text h3 {
-            margin: 5px 0 5px 0;
-            font-size: 24px;
-            -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: #39FF14;
-        }
-        .carousel-container {
-            width: 80%;
-            margin: 20px auto;
-            padding: 10px;
-            border: 5px solid #39FF14; /* Verde neon */
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(57, 255, 20, 0.7); /* Efeito neon */
-            background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
-        }
-        .carousel {
-            width: 100%;
-        }
-        .carousel img {
-            width: 100%;
-            height: 600px; /* Altura fixa para padronizar o tamanho */
-            object-fit: cover; /* Ajusta a imagem para cobrir o contêiner sem distorcer */
-            border-radius: 10px;
-        }
-        #play-button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 18px;
-            color: #000;
-            background-color: #39FF14; /* Verde neon */
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            box-shadow: 0 0 10px rgba(57, 255, 20, 0.7); /* Efeito neon */
-        }
-        #play-button:hover {
-            background-color: #32CD32; /* Verde lima */
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carros Rebaixados</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: url('https://img.freepik.com/fotos-gratis/ilustracao-de-chuva-na-cidade-futuristica_23-2151406576.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .logo {
+      position: absolute;
+      border: 5px solid #39FF14;
+      /* Moldura neon */
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(57, 255, 20, 0.7);
+      /* Efeito neon */
+    }
+
+    .header-text {
+      flex: 1;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.7);
+      /* Fundo semi-transparente */
+      border-bottom: 2px solid #39FF14;
+      /* Linha inferior verde neon */
+    }
+
+    .header-text h1 {
+      margin: 10px;
+      font-size: 48px;
+      color: #000;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: #39FF14;
+    }
+
+    .header-text h3 {
+      margin: 5px 0 5px 0;
+      font-size: 24px;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: #39FF14;
+    }
+
+    .carousel-container {
+      width: 80%;
+      margin: 20px auto;
+      padding: 10px;
+      border: 5px solid #39FF14;
+      /* Verde neon */
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(57, 255, 20, 0.7);
+      /* Efeito neon */
+      background-color: rgba(0, 0, 0, 0.5);
+      /* Fundo semi-transparente */
+    }
+
+    .carousel {
+      width: 100%;
+    }
+
+    .carousel img {
+      width: 100%;
+      height: 600px;
+      /* Altura fixa para padronizar o tamanho */
+      object-fit: cover;
+      /* Ajusta a imagem para cobrir o contêiner sem distorcer */
+      border-radius: 10px;
+    }
+
+    #play-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 18px;
+      color: #000;
+      background-color: #39FF14;
+      /* Verde neon */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(57, 255, 20, 0.7);
+      /* Efeito neon */
+    }
+
+    #play-button:hover {
+      background-color: #32CD32;
+      /* Verde lima */
+    }
+
+    footer {
+      padding-top: 120px;
+    }
+
+    .footer-top {
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-bottom {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+
+    footer li,
+    footer p,
+    footer a {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    footer ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    footer .line {
+      width: 40px;
+      height: 4px;
+      background-color: var(--c-brand);
+      margin-top: 12px;
+      margin-bottom: 24px;
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <img src="rebaixados/logo.jpg" alt="Logo Carros Rebaixados" class="logo">
-        <div class="header-text">
-            <h1>Rebaixados.com</h1>
-            <h3>#UmPouquinhoPegaMesmo</h3>
-            <h3>#ChoraBoy</h3>
-            <h3>#CopiaNaoComedia</h3>
-        </div>
-    </header>
-
-    <div class="carousel-container">
-        <div class="carousel">
-            <div><img src="rebaixados/carro0.jpg" alt="Carro Rebaixado 1"></div>
-            <div><img src="rebaixados/carro1.jpg" alt="Carro Rebaixado 2"></div>
-            <div><img src="rebaixados/carro2.jpg" alt="Carro Rebaixado 3"></div>
-            <div><img src="rebaixados/carro3.jpg" alt="Carro Rebaixado 4"></div>
-            <div><img src="rebaixados/carro4.jpg" alt="Carro Rebaixado 5"></div>
-            <div><img src="rebaixados/carro5.jpg" alt="Carro Rebaixado 6"></div>
-            <div><img src="rebaixados/carro6.jpg" alt="Carro Rebaixado 7"></div>
-            <div><img src="rebaixados/carro7.jpg" alt="Carro Rebaixado 8"></div>
-            <div><img src="rebaixados/carro8.jpg" alt="Carro Rebaixado 9"></div>
-            <div><img src="rebaixados/carro9.jpg" alt="Carro Rebaixado 10"></div>
-        </div>
+  <header>
+    <img src="rebaixados/logo.jpg" alt="Logo Carros Rebaixados" class="logo">
+    <div class="header-text">
+      <h1>Rebaixados.com</h1>
+      <h3>#UmPouquinhoPegaMesmo</h3>
+      <h3>#ChoraBoy</h3>
+      <h3>#CopiaNaoComedia</h3>
     </div>
+  </header>
 
-    <audio id="meuAudio" controls autoplay>
-        <source src="themesong.mp3" type="audio/mpeg">
-        Seu navegador não suporta o elemento de áudio.
-    </audio>
+  <div class="carousel-container">
+    <div class="carousel">
+      <div><img src="rebaixados/carro0.jpg" alt="Carro Rebaixado 1"></div>
+      <div><img src="rebaixados/carro1.jpg" alt="Carro Rebaixado 2"></div>
+      <div><img src="rebaixados/carro2.jpg" alt="Carro Rebaixado 3"></div>
+      <div><img src="rebaixados/carro3.jpg" alt="Carro Rebaixado 4"></div>
+      <div><img src="rebaixados/carro4.jpg" alt="Carro Rebaixado 5"></div>
+      <div><img src="rebaixados/carro5.jpg" alt="Carro Rebaixado 6"></div>
+      <div><img src="rebaixados/carro6.jpg" alt="Carro Rebaixado 7"></div>
+      <div><img src="rebaixados/carro7.jpg" alt="Carro Rebaixado 8"></div>
+      <div><img src="rebaixados/carro8.jpg" alt="Carro Rebaixado 9"></div>
+      <div><img src="rebaixados/carro9.jpg" alt="Carro Rebaixado 10"></div>
+    </div>
+  </div>
 
-    <script>
-        $(document).ready(function(){
-            $('.carousel').slick({
-                autoplay: true,
-                autoplaySpeed: 2000,
-                dots: true,
-                arrows: false
-            });
-        });
-    </script>
+  <audio id="meuAudio" autoplay loop controls>
+    <source src="themesong.mp3" type="audio/mpeg">
+    Seu navegador não suporta o elemento de áudio.
+  </audio>
+
+  <!-- FOOTER -->
+  <footer class="bg-dark">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-5">
+          <div class="col-lg-3 col-sm-6">
+            <h5 class="mb-0 text-white">Rebaixados.com</h5>
+            <a href="#"><img src="rebaixados/logo.jpg" alt=""></a>
+            <div class="line"></div>
+            <p>Manda as formiga agacha.</p>
+            <div class="social-icons">
+              <a href="#"><i class="ri-twitter-fill"></i></a>
+              <a href="#"><i class="ri-instagram-fill"></i></a>
+              <a href="#"><i class="ri-github-fill"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <h5 class="mb-0 text-white">SERVIÇOS</h5>
+            <div class="line"></div>
+            <ul>
+              <li><a href="#">Rebaixador Profissional</a></li>
+              <li><a href="#">Suspensão à Ar</a></li>
+              <li><a href="#">Pintura e Customização</a></li>
+              <li><a href="#">Tunagem</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <h5 class="mb-0 text-white">SOBRE</h5>
+            <div class="line"></div>
+            <ul>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Envie suas fotos</a></li>
+              <li><a href="#">Venda essa lasanha que você chama de carro</a></li>
+              <li><a href="#"></a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-sm-6">
+            <h5 class="mb-0 text-white">CONTACT</h5>
+            <div class="line"></div>
+            <ul>
+              <li>Capão Redondo, SP</li>
+              <li>- seguindo à direita da boca do seu luiz.</li>
+              <li>4002-8922</li>
+              <li>www.rebaixados.com</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row g-4 justify-content-between">
+          <div class="col-auto">
+            <p class="mb-0">© Copyright Rebaixados.com. Todos os direitos reservados</p>
+          </div>
+          <div class="col-auto">
+            <p class="mb-0">Feito de ⚙️ por <a
+                href="https://www.youtube.com/channel/UCYMEEnLzGGGIpQQ3Nu_sBsQ">Tavinho pouca mola</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
 </body>
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var audio = document.getElementById("meuAudio");
+    audio.volume = 0.1; // Define o volume para 10%
+    audio.play().catch(error => {
+      console.log("Autoplay bloqueado pelo navegador, o usuário precisa interagir primeiro.");
+    });
+  });
+</script>
+
+<script>
+  $(document).ready(function () {
+    $('.carousel').slick({
+      autoplay: true,
+      autoplaySpeed: 2000,
+      dots: true,
+      arrows: false
+    });
+  });
+</script>
+
 </html>
